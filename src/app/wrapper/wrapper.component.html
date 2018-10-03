@@ -1,5 +1,8 @@
-<p>
-  URL: {{url$ | async}}
-</p>
+<div class="container">
+  <span>{{currentSuperView$ | async}}</span>
+  <p>
+    URL: {{url$ | async}}
+  </p>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>

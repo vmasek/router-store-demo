@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { $routeURL } from '../selectors';
+import { $currentSuperView, $routeURL } from '../selectors';
 import { AppStateModel } from '../app.module';
 
 @Component({
@@ -11,6 +11,7 @@ import { AppStateModel } from '../app.module';
 export class WrapperComponent {
 
   readonly url$ = this.store.pipe(select($routeURL));
+  readonly currentSuperView$ = this.store.pipe(select($currentSuperView));
 
   constructor(private readonly store: Store<AppStateModel>) {}
 }

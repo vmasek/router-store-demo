@@ -1,33 +1,37 @@
-<button [routerLink]="[routePath.Platform]">
-  {{routePath.Platform}}
-</button>
+<div class="container">
+  <span>app component</span>
 
-<button [routerLink]="[routePath.Landing]">
-  {{routePath.Landing}}
-</button>
+  <button [routerLink]="[routePath.Platform]">
+    {{routePath.Platform}}
+  </button>
 
-<button [routerLink]="[]" [queryParams]="{ foo: 42 }">
-  set query param 'foo' to 42
-</button>
+  <button [routerLink]="[routePath.Landing]">
+    {{routePath.Landing}}
+  </button>
 
-<button (click)="randomQuery()">
-  random number to query param 'foo'
-</button>
+  <button [routerLink]="[]" [queryParams]="{ foo: 42 }">
+    set query param 'foo' to 42
+  </button>
 
-<button [routerLink]="[routePath.Platform, routePath.ItemDetail, 42]">
-  {{routePath.ItemDetail}} item id 42
-</button>
+  <button (click)="randomQuery()">
+    random number to query param 'foo'
+  </button>
 
-<button [routerLink]="[routePath.Platform, routePath.ItemDetail, 12512631]">
-  {{routePath.ItemDetail}} item id 12512631
-</button>
+  <button [routerLink]="[routePath.Platform, routePath.ItemDetail, 42]">
+    {{routePath.ItemDetail}} item id 42
+  </button>
 
-<button [routerLink]="[routePath.Platform, routePath.Comparison, comparisonData]">
-  {{routePath.Comparison}} of items [1, 42, 99]
-</button>
+  <button [routerLink]="[routePath.Platform, routePath.ItemDetail, 12512631]">
+    {{routePath.ItemDetail}} item id 12512631
+  </button>
 
-<button [routerLink]="[routePath.Platform, routePath.Comparison, comparisonData2]">
-  {{routePath.Comparison}} of items [12412125, 999999]
-</button>
+  <button [routerLink]="[routePath.Platform, routePath.Comparison, comparisonData]">
+    {{routePath.Comparison}} of items [1, 42, 99]
+  </button>
 
-<router-outlet></router-outlet>
+  <button [routerLink]="[routePath.Platform, routePath.Comparison, comparisonData2]">
+    {{routePath.Comparison}} of items [12412125, 999999]
+  </button>
+
+  <router-outlet></router-outlet>
+</div>

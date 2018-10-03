@@ -1,19 +1,22 @@
-<p>{{currentView$ | async}}</p>
+<div class="container">
+  <span>{{currentView$ | async}}</span>
 
-<div *ngIf="(currentView$ | async) === routePath.Comparison">
-  <p>
-    items in comparison are: {{comparisonIds$ | async | json}}
-  </p>
-</div>
+  <div *ngIf="(currentView$ | async) === routePath.Comparison">
+    <p>
+      items in comparison are: {{comparisonIds$ | async | json}}
+    </p>
+  </div>
 
-<div *ngIf="(currentView$ | async) === routePath.ItemDetail">
-  <p>
-    detail item id is: {{detailItemId$ | async}}
-  </p>
-</div>
+  <div *ngIf="(currentView$ | async) === routePath.ItemDetail">
+    <p>
+      detail item id is: {{detailItemId$ | async}}
+    </p>
+  </div>
 
-<div *ngIf="queryFooValue$ as queryFooValue">
-  <p>
-    query param 'foo' is: {{queryFooValue}}
-  </p>
+  <div *ngIf="(fooQueryValue$ | async) as fooQueryValue">
+    <p>
+      query param 'foo' is: {{fooQueryValue}}
+    </p>
+  </div>
+
 </div>

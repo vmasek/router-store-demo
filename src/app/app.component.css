@@ -1,3 +1,7 @@
 button {
   display: block
 }
+
+.container, span {
+  border: 2px black solid;
+}

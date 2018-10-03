@@ -3,20 +3,20 @@ import { Injectable, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Params, Router, RouterStateSnapshot } from '@angular/router';
+import { Router, RouterStateSnapshot } from '@angular/router';
 import { routerReducer, RouterReducerState, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DataDisplayComponent } from './data-display/data-display.component';
 import { WrapperComponent } from './wrapper/wrapper.component';
-import { RoutePath } from './types';
+import { RouteParamMap, RoutePath, RouteQueryParamMap } from './types';
 
 
 export interface RouteState {
   url: string;
   path: RoutePath[];
-  params: Params; // RouteParamMap
-  queryParams: Params;
+  params: RouteParamMap;
+  queryParams: RouteQueryParamMap;
 }
 
 export interface AppStateModel {
@@ -43,8 +43,6 @@ export class CustomSerializer implements RouterStateSerializer<RouteState> {
 
     const urlTree = this.router.parseUrl(url);
     const {segments} = urlTree.root.children.primary;
-
-    console.log('query?', queryParams);
 
     // Only return an object including the URL, params and query params
     // instead of the entire snapshot

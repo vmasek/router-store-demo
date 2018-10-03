@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { RouteParamKey, RouteParamMap, RoutePath } from './types';
+import { RouteParamKey, RouteParamMap, RoutePath, RouteQueryParamKey, RouteQueryParamMap } from './types';
 import { AppStateModel, RouteState } from './app.module';
 
 export const $route = ({route}: AppStateModel) => route.state;
@@ -34,6 +34,11 @@ export const $isRoute = (route: RoutePath) => createSelector(
   ([superView, view]: RoutePath[]) => superView === route || view === route
 );
 
+export const $currentSuperView = createSelector(
+  $routePath,
+  ([superView]: RoutePath[]) => superView
+);
+
 export const $currentView = createSelector(
   $routePath,
   ([superView, view]: RoutePath[]) => view
@@ -45,6 +50,12 @@ export const $comparisonIds = createSelector(
 );
 
 export const $detailItemId = createSelector(
-  $routePath,
-  ([superView, view, id]: RoutePath[]) => id
+  $routeParams,
+  (params: RouteParamMap) => params[RouteParamKey.ItemId],
+  // ([superView, view, id]: RoutePath[]) => id,
+);
+
+export const $fooQueryValue = createSelector(
+  $routeQueryParams,
+  (queryParams: RouteQueryParamMap) => Number(queryParams[RouteQueryParamKey.Foo]),
 );

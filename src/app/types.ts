@@ -12,8 +12,17 @@ export enum RoutePath {
 
 export enum RouteParamKey {
   ComparisonIds = 'comparisonIds',
+  ItemId = 'itemId',
 }
 
 export type RouteParamMap = {
   [P in RouteParamKey]?: string;
+};
+
+export enum RouteQueryParamKey {
+  Foo = 'foo',
+}
+
+export type RouteQueryParamMap = {
+  [P in RouteQueryParamKey]?: string;
 };
